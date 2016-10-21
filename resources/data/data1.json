@@ -1,0 +1,23 @@
+{
+	"success": true,
+	"data": [{
+		"agent": "Agent 1",
+		"state": "Ready"
+	}, {
+		"agent": "Agent 2",
+		"state": "Failed"
+	}, {
+		"agent": "Agent 3",
+		"state": "Pending"
+	}, {
+		"agent": "Agent 4",
+		"state": "Initialized"
+	}, {
+		"agent": "Agent 5",
+		"state": "Ready"
+	}, {
+		"agent": "Agent 6",
+		"state": "Failed"
+	}]
+	
+}
