@@ -9,9 +9,10 @@ Ext.define('ExtTrigCmb.view.ExtendedTriggerCombo', {
    triggerClickState: false,
    curIndex: 0,
    channel: null,
+   prefix: "resources/data/data",
+   suffix: ".json",
    onTriggerClick: function() {
         var me = this,    
-            args = arguments,
             xhrCall = false,
             fn;
        
@@ -34,7 +35,7 @@ Ext.define('ExtTrigCmb.view.ExtendedTriggerCombo', {
            };
            fn.call(me);            
         } else {
-           me.callSuper();
+           me.callSuper(arguments);
         }
        
    },
@@ -48,26 +49,15 @@ Ext.define('ExtTrigCmb.view.ExtendedTriggerCombo', {
            '</tpl>'
        );
        me.store = "ExtendedTriggerCombo";
+       
        me.listConfig = {
            getInnerTpl: function() {
                return '{agent}, {state}';
            }
-       };       
-       me.listeners = {
-           'afterrender': {
-               fn: function(cmb) {
-                    var me = this,
-                        idx = me.idxFunc(),
-                        url = me.prefix + idx + me.suffix;
-                    me.loadAndDispatch(url);
-               },
-               scope: me
-           }
        };
+              
        me.callParent(arguments);
    },
-   prefix: "resources/data/data",
-   suffix: ".json",
    idxFunc: function() {
        var me = this,
            val = Math.floor(Math.random() * 4) + 1;
